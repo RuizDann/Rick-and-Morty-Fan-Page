@@ -1,0 +1,87 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Define colors and common values as variables */
+:root {
+  --background-color: #f5f5f5;
+  --font-family: 'Roboto', sans-serif;
+  --text-color: #333;
+  --font-size: 16px; /* Base font size */
+  --line-height: 1.5;
+  --margin-bottom: 1.5rem;
+}
+
+body {
+  font-family: var(--font-family), sans-serif;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  width: 100vw;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 2rem; /* Increased padding for a more spacious header */
+  border-bottom: 1px solid #e3e3e3;
+  width: 100vw;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+/* Align image to be at the far left of the nav section */
+nav img {
+  align-self: flex-start;
+  width: 20%;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  list-style: none;
+  width: 100vw;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+a img {
+  width: 10%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+/* Example of using CSS variables */
+main p {
+  font-size: 1.2rem; /* Use your custom variable for font size */
+  line-height: var(--line-height);
+  margin-bottom: var(--margin-bottom);
+}
