@@ -1,92 +1,56 @@
-// API URL
-let api_url = "https://rickandmortyapi.com/api/character/?page=1";
-
-// Function to make an API request and display data
-async function getapi(url) {
+async function fetchData(url) {
   try {
     const response = await fetch(url);
-
-    if (response.ok) {
-      const data = await response.json();
-      show(data);
-    } else {
-      console.error("API request failed with status: " + response.status);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
+    return await response.json();
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error fetching data:", error);
+    throw error;
   }
 }
 
-// Initial API request
-getapi(api_url);
-
-// Function to generate the HTML table
-function show(data) {
-  let table = `
-    <tr>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Species</th>
-        <th>Type</th>
-        <th>Gender</th>
-        <th>Origin</th>
-        <th>Location</th>
-    </tr>`;
-
-  for (let character of data.results) {
-    for (let key in character) {
-      if (character[key] == "" || character[key] == null) {
-        character[key] = 'N/A';
-      }
+async function fetchAllData(url) {
+  let allCharacters = [];
+  try {
+    while (url) {
+      const data = await fetchData(url);
+      allCharacters = allCharacters.concat(data.results);
+      console.log("allCharacters:", allCharacters);
+      url = data.info.next;
     }
-
-    table += `<tr>
-        <td><img src="${character.image}" alt="image"></td>
-        <td>${character.name}</td>
-        <td>${character.status}</td>
-        <td>${character.species}</td>
-        <td>${character.type}</td>
-        <td>${character.gender}</td>
-        <td>${character.origin.name}</td>
-        <td>${character.location.name}</td>
-    </tr>`;
+    
+    displayDataInCards(allCharacters);
+  } catch (error) {
+    console.error("Error fetching all data:", error);
   }
-
-  // Add navigation buttons
-  table += `<tr>
-        <td colspan="8">
-            <button id="prevBtn" onclick="previousPage()">Previous</button>
-            <button id="nextBtn" onclick="nextPage()">Next</button>
-        </td>
-    </tr>`;
-
-  document.getElementById("characters").innerHTML = table;
-  document.getElementById('characters').createCaption().innerHTML = 'Characters Table ' + parseInt(api_url.match(/\d+$/)[0]);
 }
 
-// Function to get the next page
-function nextPage() {
-  api_url = getNextPage(api_url);
-  getapi(api_url);
+function displayDataInCards(characters) {
+  const cardsContainer = document.querySelector("#charactersCards");
+  
+  characters.forEach((character) => {
+    const card = document.createElement("div");
+    card.classList.add("card", "mx-2", "bg-light", "shadow-lg", "border");
+    card.style.width = "18em";
+    
+    card.innerHTML = `
+      <img src="${character.image}" class="card-img-top pt-2 align-self-center" alt="${character.name}" style="width: 12em;">
+      <div class="card-body text-center">
+        <h5 class="card-title border-bottom" style="font-weight: bold;">${character.name || "N/A"}</h5>
+        <p class="card-text"><span style="font-weight: bold;">Species:</span> ${character.species || "N/A"}</p>
+        <p class="card-text"><span style="font-weight: bold;">Status:</span> ${character.status || "N/A"}</p>
+        <p class="card-text"><span style="font-weight: bold;">Gender:</span> ${character.gender || "N/A"}</p>
+        <p class="card-text"><span style="font-weight: bold;">Origin:</span> ${character.origin.name || "N/A"}</p>
+        <p class="card-text"><span style="font-weight: bold;">Location:</span> ${character.location.name || "N/A"}</p>
+        <p class="card-text"><span style="font-weight: bold;">Episodes:</span> ${character.episode.length || "N/A"}</p>
+      </div>
+    `;
+    
+    cardsContainer.appendChild(card);
+  });
 }
 
-// Function to get the previous page
-function previousPage() {
-  api_url = getPreviousPage(api_url);
-  getapi(api_url);
-}
-
-// Helper functions for getting next and previous page URLs
-function getNextPage(url) {
-  const currentPage = parseInt(url.match(/\d+$/)[0]);
-  return url.replace(/(\d+)$/, currentPage + 1);
-}
-
-function getPreviousPage(url) {
-  const currentPage = parseInt(url.match(/\d+$/)[0]);
-  if (currentPage > 1) {
-    return url.replace(/(\d+)$/, currentPage - 1);
-  }
-  return url;
-}
+const apiUrl = "https://rickandmortyapi.com/api/character";
+fetchAllData(apiUrl);
