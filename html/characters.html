@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Characters Page</title>
+    <title>Characters</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/characters.js"></script>
+    <link rel="stylesheet" href="\css\styles.css">
+    <script src="\js\characters.js"></script>
 </head>
 
 <body class="bg-light">
     <div class="container-fluid">
         <header class="navbar navbar-expand-lg navbar-light bg-light border shadow mx-5">
             <div class="container">
-                <a href="index.html" class="navbar-brand"><img src="images/rickmorty.png" alt="Rick and Morty Logo"
+                <a href="\index.html" class="navbar-brand"><img src="\images\rickmorty.png" alt="Rick and Morty Logo"
                         height="100"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -23,17 +23,17 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav nav-pills ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link link-info fw-bold narrow-link" href="index.html">Home</a>
+                            <a class="nav-link link-info fw-bold narrow-link" href="\index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-info fw-bold narrow-link active" aria-current="page"
-                                href="characters.html">Characters</a>
+                                href="\html\characters.html">Characters</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-info fw-bold narrow-link" href="episodes.html">Episodes</a>
+                            <a class="nav-link link-info fw-bold narrow-link" href="\html\episodes.html">Episodes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-info fw-bold narrow-link" href="locations.html">Locations</a>
+                            <a class="nav-link link-info fw-bold narrow-link" href="\html\locations.html">Locations</a>
                         </li>
                     </ul>
                 </div>
@@ -43,10 +43,8 @@
             <section class="my-4 text-center container-fluid">
                 <div class="row py-lg-5 border shadow">
                     <div class="col-lg-6 col-md-8 mx-auto">
-                        <h1 class="fw-light">All Rick and Morty Characters</h1>
-                        <p class="lead text-body-secondary">Something short and leading about the collection below—its
-                            contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply
-                            skip over it entirely.</p>
+                        <h1>All Rick and Morty Characters</h1>
+                        <p class="text-start lead fw-normal user-select-none" style="text-indent: 3em;">Dive deep into the multiverse with our Rick and Morty Characters Page! Meet your favorite characters, each with a unique blend of humor and chaos. From names and photos to species, status, gender, origin, location, and episode count – explore the comprehensive profiles of your beloved characters. Uncover the quirks that make them truly out-of-this-world in every dimension!</p>
                     </div>
                 </div>
             </section>
@@ -60,8 +58,6 @@
         </main>
         <footer
             class="d-flex flex-column my-4 py-3 justify-content-center align-items-center bg-slight border shadow mx-5">
-            <p class="lead fw-normal user-select-none my-2">Link to the API: <a href="https://rickandmortyapi.com/"
-                    class="link-info" target="_blank">The Rick and Morty API</a></p>
             <p class="lead fw-normal user-select-none my-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github"
                     viewBox="0 0 16 16">
@@ -69,6 +65,15 @@
                         d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
                 </svg>
                 Created by: <a href="https://github.com/RuizDann" class="link-info" target="_blank">Daniel Ruiz</a>
+            </p>
+            <p class="lead fw-normal user-select-none my-2"><svg xmlns="http://www.w3.org/2000/svg" width="32"
+                    height="32" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M6.49 19.04h-.23L5.13 17.9v-.23l1.73-1.71h1.2l.15.15v1.2L6.5 19.04ZM5.13 6.31V6.1l1.13-1.13h.23L8.2 6.68v1.2l-.15.15h-1.2L5.13 6.31Zm9.96 9.09h-1.65l-.14-.13v-3.83c0-.68-.27-1.2-1.1-1.23c-.42 0-.9 0-1.43.02l-.07.08v4.96l-.14.14H8.9l-.13-.14V8.73l.13-.14h3.7a2.6 2.6 0 0 1 2.61 2.6v4.08l-.13.14Zm-8.37-2.44H.14L0 12.82v-1.64l.14-.14h6.58l.14.14v1.64l-.14.14Zm17.14 0h-6.58l-.14-.14v-1.64l.14-.14h6.58l.14.14v1.64l-.14.14ZM11.05 6.55V1.64l.14-.14h1.65l.14.14v4.9l-.14.14h-1.65l-.14-.13Zm0 15.81v-4.9l.14-.14h1.65l.14.13v4.91l-.14.14h-1.65l-.14-.14Z" />
+                </svg> Deployed on: <a href="https://netlify.app/" class="link-info" target="_blank">Netlify</a>
+            </p>
+            <p class="lead fw-normal user-select-none my-2">Link to the API: <a href="https://rickandmortyapi.com/"
+                    class="link-info" target="_blank">The Rick and Morty API</a>
             </p>
         </footer>
     </div>
